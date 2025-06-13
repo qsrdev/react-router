@@ -10,6 +10,10 @@ export default function Header() {
       title: "Chi Siamo",
       url: "/who",
     },
+    {
+      title: "Form",
+      url: "/form",
+    },
   ];
   return (
     <>
