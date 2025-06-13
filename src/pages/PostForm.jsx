@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, Links } from "react-router-dom";
+import { Link, Links, useNavigate } from "react-router-dom";
 
 export default function PostForm() {
+  let navigate = useNavigate();
   const startingData = {
     author: "",
     title: "",
@@ -35,6 +36,7 @@ export default function PostForm() {
     axios.post("https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts", formData).then((resp) => {
       if (resp.data.id !== undefined) {
         setShowAlert(true);
+        navigate(`/who/${resp.data.id}`);
       } else {
         setShowWarning(true);
       }
